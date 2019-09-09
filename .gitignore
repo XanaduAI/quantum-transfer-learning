@@ -1,6 +1,6 @@
 data/
 .ipynb_checkpoints/
 checkpoint
-model.*
+model*.*
 *.pt
-!quantum_last_layer_12.pt
+#!quantum_last_layer_12.pt
