@@ -26,7 +26,7 @@ This repository contains the source code related to the research paper *"Transfe
 ## Usage and examples
 
 To visualize the content of the Jupyter notebooks without running the code there are two alternatives:
-1. Navigate with a browser the GitHub repository and simply click on the notebook file. GitHub will automatically visualize the notebook, but the rendering may not be good (especially for LaTeX formulas).
+1. Navigate with a browser to the GitHub repository and simply click on the notebook file. GitHub will automatically visualize the notebook, however the rendering may not be good (especially for LaTeX formulas).
 2. Copy the URL of the notebook file and paste it into [nbviewer](https://nbviewer.jupyter.org).
 
 To open and run a local copy of a notebook one should apply the following steps:
