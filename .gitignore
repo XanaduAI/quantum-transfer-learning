@@ -1,0 +1,5 @@
+data/*
+.ipynb_checkpoints/
+checkpoint
+model.*
+!quantum_last_layer_12.pt
