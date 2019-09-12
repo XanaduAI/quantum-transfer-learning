@@ -45,7 +45,7 @@ if backend == 'ibm':
 if backend == 'rigetti':
     dev_qpu = qml.device('forest.qpu', device='Aspen-4-4Q-A', shots=1024)
 
-print(dev.capabilities()['backend'])
+#print(dev.capabilities()['backend'])
 
 # Other options only for dev tests. Leave commented for a standard usage.
 #dev = qml.device('projectq.ibm', wires=n_qubits, user='andreamari84@gmail.com', password='') ## doesn't work
@@ -202,7 +202,7 @@ n_batches = dataset_sizes['val'] // batch_size
 it = 0
 
 print('Results of the model testing on a real quantum processor.',  file=open('results_'+backend+'.txt', 'w'))
-print('QPU backend: ' + backend+ '\n',  file=open('results_'+backend+'.txt', 'a'))
+print('QPU backend: ' + backend,  file=open('results_'+backend+'.txt', 'a'))
 
 for inputs, labels in dataloaders['val']:
                     model_hybrid.eval()
@@ -225,11 +225,12 @@ epoch_loss = running_loss / dataset_sizes['val']
 epoch_acc = running_corrects / dataset_sizes['val']
 print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc))
 # log to file
-print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc), file=open('log_'+backend+'.txt', 'a'))
+print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc), file=open('results_'+backend+'.txt', 'a'))
 
 # Compute and the visualize the predictions for a batch of test data.
 # The figure is saved as a .png file in the working directory.
 images_so_far = 0
+num_images = batch_size
 fig = plt.figure('Predictions')
 model_hybrid.eval()
 with torch.no_grad():
@@ -240,9 +241,12 @@ with torch.no_grad():
         _, preds = torch.max(outputs, 1)
         for j in range(inputs.size()[0]):
             images_so_far += 1
-            ax = plt.subplot(batch_size // 2, 2, images_so_far)
+            ax = plt.subplot(num_images // 2, 2, images_so_far)
             ax.axis('off')
             ax.set_title('[{}]'.format(class_names[preds[j]]))
             imshow(inputs.cpu().data[j])
-            if images_so_far == batch_size:
+            if images_so_far == num_images:
                 fig.savefig('predictions_'+backend+'.png')
+                break
+        if images_so_far == num_images:
+            break
