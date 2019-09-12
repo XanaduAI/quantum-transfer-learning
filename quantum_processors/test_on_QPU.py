@@ -31,20 +31,23 @@ start_time = time.time()                # start of the computation timer
 data_dir = '../data/hymenoptera_data'   # path of dataset
 
 
-# We use a real quantum processor as a PennyLane backend. Choose between the two options: 'ibm' or 'rigetti'.
-backend = 'ibm'
-#backend = 'rigetti'
+# Choose between the two quantum backends: 'ibm' or 'rigetti'.
+# ========= QPU ==========
+backend = 'ibm'          #
+# backend = 'rigetti'    #
+# ========================
 
+# Set the chosen backend as a PennyLane device. 
 if backend == 'ibm':
     token = '' # Insert your personal IBM token. Remove the token when shering your code!
     dev = qml.device('qiskit.ibm', wires=n_qubits, backend='ibmqx4', ibmqx_token=token)
 
 if backend == 'rigetti':
-    dev_qpu = qml.device('forest.qpu', device='Aspen-0-12Q-A', shots=1024)
+    dev_qpu = qml.device('forest.qpu', device='Aspen-4-4Q-A', shots=1024)
 
 print(dev.capabilities()['backend'])
 
-# Other options only for dev tests. Keep all commented for a standard usage.
+# Other options only for dev tests. Leave commented for a standard usage.
 #dev = qml.device('projectq.ibm', wires=n_qubits, user='andreamari84@gmail.com', password='') ## doesn't work
 #dev = qml.device('projectq.simulator', wires=n_qubits)
 #dev = qml.device('qiskit.basicaer', wires=n_qubits)
@@ -176,16 +179,14 @@ class Quantumnet(nn.Module):
             return self.post_net(q_out)
 
 # We are finally ready to build our full hybrid classical-quantum network. We follow the *transfer learning* approach:
-
-# 1. First load the classical pre-trained network *ResNet18* from the `torchvision.models` zoo. The model is downloaded from Internet and it may take a long time (only the first time). 
+# First load the classical pre-trained network *ResNet18* from the `torchvision.models` zoo. The model is downloaded from Internet and it may take a long time (only the first time). 
 model_hybrid = torchvision.models.resnet18(pretrained=True)
-
-# 2. Freeze all the weights since they should not be trained.
+# Freeze all the weights since they should not be trained.
 for param in model_hybrid.parameters():
     param.requires_grad = False
-
-# 3. Replace the last fully connected layer with our trainable dressed quantum circuit (`Quantumnet`). 
+# Replace the last fully connected layer with our trainable dressed quantum circuit (`Quantumnet`). 
 model_hybrid.fc = Quantumnet()
+
 
 # use CUDA or CPU according to the "device" object.
 model_hybrid = model_hybrid.to(device)
@@ -194,7 +195,6 @@ model_hybrid = model_hybrid.to(device)
 model_hybrid.fc.load_state_dict(torch.load("quantum_weights.pt",map_location='cpu'))
 
 # We apply the model to the test dataset to compute the associated loss and accuracy.
-
 criterion = nn.CrossEntropyLoss()
 running_loss = 0.0
 running_corrects = 0
@@ -220,6 +220,7 @@ for inputs, labels in dataloaders['val']:
                     # log to file
                     print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True, file=open('results_'+backend+'.txt', 'a'))
                     it+=1
+
 epoch_loss = running_loss / dataset_sizes['val']
 epoch_acc = running_corrects / dataset_sizes['val']
 print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc))
@@ -228,7 +229,6 @@ print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_ac
 
 # Compute and the visualize the predictions for a batch of test data.
 # The figure is saved as a .png file in the working directory.
-
 images_so_far = 0
 fig = plt.figure(fig_name)
 model_hybrid.eval()
