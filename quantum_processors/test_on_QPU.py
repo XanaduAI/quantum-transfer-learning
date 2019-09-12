@@ -246,4 +246,3 @@ with torch.no_grad():
             imshow(inputs.cpu().data[j])
             if images_so_far == batch_size:
                 fig.savefig('predictions_'+backend+'.png')
-                return
