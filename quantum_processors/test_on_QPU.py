@@ -31,7 +31,7 @@ start_time = time.time()                # start of the computation timer
 data_dir = '../data/hymenoptera_data'   # path of dataset
 
 
-# Let us use a real quantum processor as a PennyLane backend. Choose between two options: IBM (ibmqx4) or Rigetti (Aspen 4-4Q-4).
+# We use a real quantum processor as a PennyLane backend. Choose between the two options: 'ibm' or 'rigetti'.
 backend = 'ibm'
 #backend = 'rigetti'
 
@@ -39,7 +39,7 @@ if backend == 'ibm':
     token = '' # Insert your personal IBM token. Remove the token when shering your code!
     dev = qml.device('qiskit.ibm', wires=n_qubits, backend='ibmqx4', ibmqx_token=token)
 
-if backend = 'rigetti':
+if backend == 'rigetti':
     dev_qpu = qml.device('forest.qpu', device='Aspen-0-12Q-A', shots=1024)
 
 print(dev.capabilities()['backend'])
