@@ -202,7 +202,7 @@ n_batches = dataset_sizes['val'] // batch_size
 it = 0
 
 print('Results of the model testing on a real quantum processor.',  file=open('results_'+backend+'.txt', 'w'))
-print('QPU backend: ' + bakend+ '\n',  file=open('results_'+backend+'.txt', 'a'))
+print('QPU backend: ' + backend+ '\n',  file=open('results_'+backend+'.txt', 'a'))
 
 for inputs, labels in dataloaders['val']:
                     model_hybrid.eval()
