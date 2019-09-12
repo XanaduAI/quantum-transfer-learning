@@ -230,7 +230,7 @@ print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_ac
 # Compute and the visualize the predictions for a batch of test data.
 # The figure is saved as a .png file in the working directory.
 images_so_far = 0
-fig = plt.figure(fig_name)
+fig = plt.figure('Predictions')
 model_hybrid.eval()
 with torch.no_grad():
     for i, (inputs, labels) in enumerate(dataloaders['val']):
