@@ -24,10 +24,7 @@ To test the model with the IBM backend:
 3. Download the _Hymenoptera_ dataset as described in the main README file this repository.
 4. Edit the local file `test_on_QPU.py` and set `backend = 'ibm'`.
 4. Moreover, set your personal IBM token by editing `token = '<your token>'`.
-5. Run the command 
-```
- python3 test_on_QPU.py
- ```
+5. Launch the script with the command `$ python3 test_on_QPU.py`.
 
 To test the model with the Rigetti backend:
 1. Make sure to satisfy all requirements (see next section).
@@ -35,7 +32,8 @@ To test the model with the Rigetti backend:
 3. Download or clone the repository in the QVM.
 4. Download the _Hymenoptera_ dataset as described in the main README file of this repository. 
 5. Edit the file `test_on_QPU.py` and set `backend = 'rigetti'`.
-6. Run the command `python3 test_on_QPU.py`.
+6.  Launch the script with the command `$ python3 test_on_QPU.py`.
+
 ## Requirements
 
 Testing the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum virtual machine (QVM). In the QVM, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
