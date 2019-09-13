@@ -237,7 +237,7 @@ model_hybrid.fc = Quantumnet()
 model_hybrid = model_hybrid.to(device)
 
 # Load model from file
-model_hybrid.fc.load_state_dict(torch.load("quantum_weights.pt",map_location='cpu'))
+model_hybrid.fc.load_state_dict(torch.load("quantum_weights.pt", map_location='cpu'))
 
 # We apply the model to the test dataset to compute the associated loss and accuracy.
 criterion = nn.CrossEntropyLoss()
@@ -246,8 +246,8 @@ running_corrects = 0
 n_batches = dataset_sizes['val'] // batch_size
 it = 0
 
-print('Results of the model testing on a real quantum processor.',  file=open('results_'+backend+'.txt', 'w'))
-print('QPU backend: ' + backend,  file=open('results_'+backend+'.txt', 'a'))
+print('Results of the model testing on a real quantum processor.',  file=open('results_' + backend + '.txt', 'w'))
+print('QPU backend: ' + backend,  file=open('results_' + backend + '.txt', 'a'))
 
 for inputs, labels in dataloaders['val']:
                     model_hybrid.eval()
@@ -263,14 +263,14 @@ for inputs, labels in dataloaders['val']:
                     running_corrects += batch_corrects
                     print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True)
                     # log to file
-                    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True, file=open('results_'+backend+'.txt', 'a'))
+                    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True, file=open('results_' + backend + '.txt', 'a'))
                     it+=1
 
 epoch_loss = running_loss / dataset_sizes['val']
 epoch_acc = running_corrects / dataset_sizes['val']
 print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc))
 # log to file
-print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc), file=open('results_'+backend+'.txt', 'a'))
+print('\nTest Loss: {:.4f} Test Acc: {:.4f}        '.format(epoch_loss, epoch_acc), file=open('results_' + backend + '.txt', 'a'))
 
 # Compute and the visualize the predictions for a batch of test data.
 # The figure is saved as a .png file in the working directory.
@@ -291,7 +291,7 @@ with torch.no_grad():
             ax.set_title('[{}]'.format(class_names[preds[j]]))
             imshow(inputs.cpu().data[j])
             if images_so_far == num_images:
-                fig.savefig('predictions_'+backend+'.png')
+                fig.savefig('predictions_' + backend + '.png')
                 break
         if images_so_far == num_images:
             break
