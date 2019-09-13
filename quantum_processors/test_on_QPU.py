@@ -1,3 +1,18 @@
+# Copyright 2019 Xanadu Quantum Technologies Inc.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""Testing a hybrid image classifier on IBM or Rigetti quantum processors."""
+
 import matplotlib.pyplot as plt
 # PyTorch
 import torch
@@ -91,7 +106,12 @@ dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x],
 
 # function to plot images
 def imshow(inp, title=None):
-    """Display image from tensor."""
+    """Display image from tensor.
+
+    Args:
+        inp (tensor): input image.
+        title (string): title of the image.
+    """
     inp = inp.numpy().transpose((1, 2, 0))
     mean = np.array([0.485, 0.456, 0.406])
     std = np.array([0.229, 0.224, 0.225])
@@ -108,18 +128,27 @@ def imshow(inp, title=None):
 
 def H_layer(nqubits):
     """Layer of single-qubit Hadamard gates. 
+
+    Args:
+        nqubits (int): number of qubits.
     """
     for idx in range(nqubits):
         qml.Hadamard(wires=idx)
         
 def RY_layer(w):
     """Layer of parametrized qubit rotations around the y axis. 
+
+    Args:
+        w (tensor): list of rotation angles. One for each qubit. 
     """
     for idx, element in enumerate(w):
         qml.RY(element, wires=idx)
 
 def entangling_layer(nqubits):
     """Layer of CNOTs followed by another shifted layer of CNOT.
+
+     Args:
+        nqubits (int): number of qubits.
     """
     # In other words it should apply something like :
     #CNOT  CNOT  CNOT  CNOT...  CNOT
@@ -136,6 +165,14 @@ def entangling_layer(nqubits):
 
 @qml.qnode(dev, interface='torch')
 def q_net(q_in, q_weights_flat):
+        """Quantum cricuit
+
+        Args:
+            q_in (tensor): input features.
+            q_weights_flat (tensor): variational parameters.
+        Returns:
+            tuple: expectation values of PauliZ for each qubit.
+        """
         # reshape weights
         q_weights = q_weights_flat.reshape(n_quantum_layers, n_qubits)
         H_layer(n_qubits)   # Start from state |+> , unbiased w.r.t. |0> and |1>
@@ -168,6 +205,14 @@ class Quantumnet(nn.Module):
             self.post_net = nn.Linear(n_qubits, 2)
 
         def forward(self, input_features):
+            """Full classical-quantum network
+
+            Args:
+                self.
+                input_features (tensor): input image.
+            Returns:
+                tuple: output logits of the hybrid network.
+            """
             pre_out = self.pre_net(input_features) 
             q_in = F.tanh(pre_out) * np.pi / 2.0   
             # apply the quantum circuit to each element of the batch, and append to q_out
