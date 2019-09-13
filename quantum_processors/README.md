@@ -24,7 +24,7 @@ To test the model with the IBM backend:
 3. Download the _Hymenoptera_ dataset as described in the main README file this repository.
 4. Edit the local file `test_on_QPU.py` and set `backend = 'ibm'`.
 4. Moreover, set your personal IBM token by editing `token = '<your token>'`.
-5. Run the command `python3 test_on_QPU.py`.
+5. Run the command ```$ python3 test_on_QPU.py```.
 
 To test the model with the Rigetti backend:
 1. Make sure to satisfy all requirements (see next section).
