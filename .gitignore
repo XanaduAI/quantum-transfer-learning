@@ -2,4 +2,4 @@
 checkpoint
 model*.*
 *.pt
-!quantum_last_layer_12.pt
+!quantum_processors/quantum_weights.pt
