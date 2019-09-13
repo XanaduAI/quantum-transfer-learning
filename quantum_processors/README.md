@@ -16,7 +16,7 @@ This code can be used to test the optimized model with two alternative quantum p
 
 * `quantum_weights.pt`: pre-trained model loaded by `test_on_QPU.py` to initialize the variational parameters of the hybrid network.
 
-## Usage and examples
+## Usage
 
 To test the model with the IBM backend:
 1. Make sure to satisfy all requirements (see next section).
