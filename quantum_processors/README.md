@@ -8,7 +8,7 @@ This code can be used to test the optimized model with two alternative quantum p
 1. IBM Q 5, Tenerife (ibmq4x).
 2. Rigetti Aspen-4-4Q-A.
 
-<img src="../static/realQPUs.png" width="200" />
+<img src="../static/realQPUs.png" width="600" />
 
 ## Contents
 * `test_on_QPU.py`: Python script to test the hybrid classical-quantum image classifier with IBM or Rigetti quantum processors. 
