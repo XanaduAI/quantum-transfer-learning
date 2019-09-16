@@ -26,7 +26,7 @@ To test the model with the IBM backend:
 5. Launch the script with the command `$ python3 test_on_QPU.py`.
 6. The output files `results_ibm.txt` and  `predictions_ibm.png` will be generated.
 
-To test the model with the Rigetti backend:
+To test the model with the Rigetti backend, you will first need to reserve QPU time:
 1. Make sure to satisfy all requirements (see next section).
 2. Login to the Rigetti QCS and your quantum machine image (QMI).
 3. Download or clone the repository in the QMI.
