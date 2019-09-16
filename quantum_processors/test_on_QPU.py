@@ -60,16 +60,7 @@ if backend == 'ibm':
 if backend == 'rigetti':
     dev_qpu = qml.device('forest.qpu', device='Aspen-4-4Q-A', shots=1024)
 
-# print(dev.capabilities()['backend'])
-
-# Other options only for dev tests. Leave commented for a standard usage.
-# dev = qml.device('projectq.ibm', wires=n_qubits, user='andreamari84@gmail.com', password='') ## doesn't work
-# dev = qml.device('projectq.simulator', wires=n_qubits)
-# dev = qml.device('qiskit.basicaer', wires=n_qubits)
-# dev = qml.device('forest.numpy_wavefunction', wires=n_qubits)
-# dev = qml.device('forest.wavefunction', wires=2)
-# dev = qml.device('forest.qvm', device='2q-pyqvm', shots=1024)
-# dev = qml.device('forest.qvm', device='2q-qvm', shots=1024)
+print('Device capabilities: ', dev.capabilities()['backend'])
 
 # Configure PyTorch to use CUDA, only if available. Otherwise simply use the CPU.
 print('Initializing backend device...')
