@@ -28,7 +28,7 @@ To test the model with the IBM backend:
 
 To test the model with the Rigetti backend:
 1. Make sure to satisfy all requirements (see next section).
-2. Login to the QVM provided by Rigetti.
+2. Login to the Rigetti QCS and your quantum machine image (QMI).
 3. Download or clone the repository in the QVM.
 4. Download the _Hymenoptera_ dataset as described in the main README file of this repository. 
 5. Edit the file `test_on_QPU.py` and set `backend = 'rigetti'`.
