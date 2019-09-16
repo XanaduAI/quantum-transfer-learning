@@ -45,4 +45,4 @@ Testing the model with the IBM backend requires having an IBM Q Experience accou
 
  [1] Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, Nathan Killoran, _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
 
- [2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin, Carsten Blank, Keri McKiernan, and Nathan Killoran. PennyLane: Automatic differentiation of hybrid quantum-classical computations. [arXiv:1811.04968](https://https://arxiv.org/abs/1811.04968), (2018).
+ [2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin, Carsten Blank, Keri McKiernan, and Nathan Killoran. PennyLane: Automatic differentiation of hybrid quantum-classical computations. [arXiv:1811.04968](https://arxiv.org/abs/1811.04968), (2018).
