@@ -19,13 +19,13 @@ This repository contains the source code related to the research paper *"Transfe
 
 * `q2q_transfer_learning.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of continuous variable quantum states. This example is based on a quantum-to-quantum (QQ) transfer learning approach.
 
-* `quantum_processors\`: folder containing the code to experimentally classify high-resolution images (_ants_ and _bees_ with real quantum processors (IBM and Rigetti). The same model can be numerically simulated with the notebook `c2q_transfer_learning_ants_bees.ipynb`.
+* `quantum_processors\`: folder containing the code to experimentally classify high-resolution images (_ants_ and _bees_) with real quantum processors (IBM and Rigetti). The same model can be numerically simulated with the notebook `c2q_transfer_learning_ants_bees.ipynb`.
 
 * `pre_trained\`: folder containing pre-trained variational parameters saved as NumPy files. They are loaded by the notebooks `q2q_transfer_learning.ipynb` and `q2q_transfer_learning.ipynb`.
 
 * `static\`: folder containing some static images.
 
-## Usage and examples
+## Usage
 
 To visualize the content of the Jupyter notebooks without running the code there are two alternatives:
 1. Navigate with a browser to the GitHub repository and simply click on the notebook file. GitHub will automatically visualize the notebook, however the rendering may not be good (especially for LaTeX formulas).
@@ -40,6 +40,8 @@ $ jupyter notebook
 ```
 3. Navigate to the local notebook file and open it.
 
+For the usage of the code in `quantum_processors\` see the dedicated README file `quantum_processors\README.md`.
+
 ## Requirements
 
 #### Software
@@ -50,6 +52,9 @@ The notebook `dressed_circuit.ipynb` requires the library PennyLane with the Pro
 The notebooks `c2q_transfer_learning_*.ipynb` require the library PennyLane with the ProjectQ and PyTorch plugins.
 
 The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend. **Due to subsequent interface upgrades, these notebooks will work only with Strawberry Fields version <= 0.10.0.**
+
+For the requirements of the code in `quantum_processors\` see the dedicated README file `quantum_processors\README.md`.
+
 
 #### Datasets
 The notebook `c2q_transfer_learning_ants_bees.ipynb` requires to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `[current directory]\data\hymenoptera_data\`.
