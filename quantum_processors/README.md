@@ -4,7 +4,7 @@ This folder contains the code that has been used in the paper [1] to experimenta
 
 The model is a hybrid neural network composed of a classical block (ResNet18) and a variational "dressed quantum circuit" [1], which has been numerically optimized according to the classical-to-quantum (CQ) transfer learning paradigm. 
 
-This code can be used to test the optimized model with two alternative quantum processing units (QPUs):
+This code is based on the cross-platform library PennyLane [2] and can be used to test the optimized model with two alternative quantum processing units (QPUs):
 1. IBM Q 5, Tenerife (ibmq4x).
 2. Rigetti Aspen-4-4Q-A.
 
@@ -40,3 +40,9 @@ To test the model with the Rigetti backend, you will first need to reserve QPU t
 Testing the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum virtual machine (QVM). In the QVM, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
 
 Testing the model with the IBM backend requires having an IBM Q Experience account and a local installation of the Qiskit SDK. The Python library PennyLane should be  installed together with the associated PyTorch and IBM plugins. 
+
+## References
+
+ [1] Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, Nathan Killoran, _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
+
+ [2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin, Carsten Blank, Keri McKiernan, and Nathan Killoran. PennyLane: Automatic differentiation of hybrid quantum-classical computations. [arXiv:1811.04968](https://https://arxiv.org/abs/1811.04968), (2018).
