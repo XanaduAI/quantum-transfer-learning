@@ -57,7 +57,7 @@ For the requirements of the code in `quantum_processors\` see the dedicated READ
 
 
 #### Datasets
-The notebook `c2q_transfer_learning_ants_bees.ipynb` requires to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `[current directory]\data\hymenoptera_data\`.
+The notebook `c2q_transfer_learning_ants_bees.ipynb` and the code in `quantum_processors\` require to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `\data\hymenoptera_data\`.
 
 The notebooks `c2q_transfer_learning_dogs_cats.ipynb` and `c2q_transfer_learning_cats_planes.ipynb` will automatically download the CIFAR10 dataset.
 
