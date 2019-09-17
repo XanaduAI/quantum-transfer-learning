@@ -47,7 +47,7 @@ The notebook `dressed_circuit.ipynb` requires the library PennyLane with the Pro
 
 The notebooks `c2q_transfer_learning_*.ipynb` require the library PennyLane with the ProjectQ and PyTorch plugins.
 
-The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend. **Due to subsequent interface upgrades, these notebooks will work only with Strawberry Fields version <= 0.10.0.**
+The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend.
 
 #### Datasets
 The notebook `c2q_transfer_learning_ants_bees.ipynb` requires to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `[current directory]\data\hymenoptera_data\`.
