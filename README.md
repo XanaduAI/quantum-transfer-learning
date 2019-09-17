@@ -58,11 +58,11 @@ The datasets (random quantum states) for the notebooks `q2q_transfer_learning.ip
 
 ## Authors
 
-Author1, Author2, et al.
+Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, and Nathan Killoran.
 
 If you are doing any research using this source code, please cite the following paper:
 
-> Author1, Author2, ... *"Transfer learning in hybrid classical-quantum neural networks"* [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
+> Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, and Nathan Killoran. _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
 
 ## License
 
