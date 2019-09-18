@@ -11,9 +11,7 @@ This repository contains the source code related to the research paper *"Transfe
 
 * `c2q_transfer_learning_ants_bees.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of high-resolution images (_ants_ and _bees_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
 
-* `c2q_transfer_learning_dogs_cats.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of CIFAR images (_dogs_ and _cats_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
-
-* `c2q_transfer_learning_cars_planes.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of CIFAR images (_cars_ and _planes_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
+* `c2q_transfer_learning_cifar.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of CIFAR images (_dogs_ vs. _cats_ or _planes_ vs. _cars_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
 
 * `q2c_transfer_learning.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of continuous variable quantum states. This example is based on a quantum-to-classical (QC) transfer learning approach.
 
@@ -52,7 +50,7 @@ The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` r
 #### Datasets
 The notebook `c2q_transfer_learning_ants_bees.ipynb` requires to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `[current directory]\data\hymenoptera_data\`.
 
-The notebooks `c2q_transfer_learning_dogs_cats.ipynb` and `c2q_transfer_learning_cats_planes.ipynb` will automatically download the CIFAR10 dataset.
+The notebook `c2q_transfer_learning_cifar.ipynb` will automatically download the CIFAR10 dataset.
 
 The datasets (random quantum states) for the notebooks `q2q_transfer_learning.ipynb` and `q2q_transfer_learning.ipynb` are automatically generated on the fly, during the training and testing phases.
 
