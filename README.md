@@ -11,7 +11,7 @@ This repository contains the source code related to the research paper *"Transfe
 
 * `c2q_transfer_learning_ants_bees.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of high-resolution images (_ants_ and _bees_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
 
-* `c2q_transfer_learning_cifar.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of CIFAR images (_dogs_ vs. _cats_ or _planes_ vs. _cars_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
+* `c2q_transfer_learning_cifar.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of CIFAR images, e.g., _dogs_ vs. _cats_ or _planes_ vs. _cars_. This example is based on a classical-to-quantum (CQ) transfer learning approach.
 
 * `q2c_transfer_learning.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of continuous variable quantum states. This example is based on a quantum-to-classical (QC) transfer learning approach.
 
