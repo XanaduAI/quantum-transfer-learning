@@ -13,7 +13,7 @@ This code is based on the cross-platform library PennyLane [2] and can be used t
 ## Contents
 * `test_on_QPU.py`: Python script to test the hybrid classical-quantum image classifier with IBM or Rigetti quantum processors. 
 
-* `quantum_weights.pt`: pre-trained model loaded by `test_on_QPU.py` to initialize the variational parameters of the hybrid network.
+* `quantum_weights.pt`: Pre-trained model loaded by `test_on_QPU.py` to initialize the variational parameters of the hybrid network.
 
 ## Usage
 
