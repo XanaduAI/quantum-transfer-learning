@@ -61,7 +61,7 @@ if backend == "ibm":
     dev = qml.device("qiskit.ibm", wires=n_qubits, backend="ibmqx4", ibmqx_token=token)
 
 if backend == "rigetti":
-    dev_qpu = qml.device("forest.qpu", device="Aspen-4-4Q-A", shots=1024)
+    dev = qml.device("forest.qpu", device="Aspen-4-4Q-A", shots=1024)
 
 print("Device capabilities: ", dev.capabilities()["backend"])
 
