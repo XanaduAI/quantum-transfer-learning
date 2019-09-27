@@ -202,7 +202,7 @@ class Quantumnet(nn.Module):
                 self.
                 input_features (tensor): input image
             Returns:
-                tuple: output logits of the hybrid network.
+                tuple: output logits of the hybrid network
             """
             pre_out = self.pre_net(input_features) 
             q_in = F.tanh(pre_out) * np.pi / 2.0   
