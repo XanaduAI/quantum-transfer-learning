@@ -200,7 +200,7 @@ class Quantumnet(nn.Module):
 
             Args:
                 self.
-                input_features (tensor): input image.
+                input_features (tensor): input image
             Returns:
                 tuple: output logits of the hybrid network.
             """
