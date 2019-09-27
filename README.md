@@ -41,9 +41,9 @@ $ jupyter notebook
 #### Software
 All notebooks require the installation of JupiterLab with a Python 3 kernel. In addition the library matplotlib is required for generating plots and images.
 
-The notebook `dressed_circuit.ipynb` requires the library PennyLane with the ProjectQ plugin.
+The notebook `dressed_circuit.ipynb` requires the Python library PennyLane.
 
-The notebooks `c2q_transfer_learning_*.ipynb` require the library PennyLane with the ProjectQ and PyTorch plugins.
+The notebooks `c2q_transfer_learning_*.ipynb` require the Python libraries PennyLane and PyTorch.
 
 The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend.
 
