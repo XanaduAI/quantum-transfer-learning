@@ -101,7 +101,7 @@ def imshow(inp, title=None):
 
     Args:
         inp (tensor): input image
-        title (string): title of the image.
+        title (string): title of the image
     """
     inp = inp.numpy().transpose((1, 2, 0))
     mean = np.array([0.485, 0.456, 0.406])
@@ -115,13 +115,13 @@ def imshow(inp, title=None):
 
 # Hybrid transfer learning model (classical-to-quantum).
 # 
-# We first define some quantum layers that will compose the quantum circuit.
+# We first define some quantum layers that will comprise the quantum circuit.
 
 def H_layer(nqubits):
     """Layer of single-qubit Hadamard gates. 
 
     Args:
-        nqubits (int): number of qubits.
+        nqubits (int): number of qubits
     """
     for idx in range(nqubits):
         qml.Hadamard(wires=idx)
@@ -130,7 +130,7 @@ def RY_layer(w):
     """Layer of parametrized qubit rotations around the y axis. 
 
     Args:
-        w (tensor): list of rotation angles. One for each qubit. 
+        w (tensor): list of rotation angles; one for each qubit
     """
     for idx, element in enumerate(w):
         qml.RY(element, wires=idx)
@@ -139,7 +139,7 @@ def entangling_layer(nqubits):
     """Layer of CNOTs followed by another shifted layer of CNOT.
 
      Args:
-        nqubits (int): number of qubits.
+        nqubits (int): number of qubits
     """
     # In other words it should apply something like :
     #CNOT  CNOT  CNOT  CNOT...  CNOT
@@ -159,10 +159,10 @@ def q_net(q_in, q_weights_flat):
         """Quantum cricuit
 
         Args:
-            q_in (tensor): input features.
-            q_weights_flat (tensor): variational parameters.
+            q_in (tensor): input features
+            q_weights_flat (tensor): variational parameters
         Returns:
-            tuple: expectation values of PauliZ for each qubit.
+            tuple: expectation values of PauliZ for each qubit
         """
         # reshape weights
         q_weights = q_weights_flat.reshape(n_quantum_layers, n_qubits)
@@ -199,7 +199,7 @@ class Quantumnet(nn.Module):
             """Full classical-quantum network.
 
             Args:
-                self.
+                self
                 input_features (tensor): input image
             Returns:
                 tuple: output logits of the hybrid network
@@ -241,21 +241,21 @@ print('Results of the model testing on a real quantum processor.',  file=open('r
 print('QPU backend: ' + backend,  file=open('results_' + backend + '.txt', 'a'))
 
 for inputs, labels in dataloaders['val']:
-                    model_hybrid.eval()
-                    inputs = inputs.to(device)
-                    labels = labels.to(device)
-                    batch_size_ = len(inputs)
-                    with torch.set_grad_enabled(False):
-                        outputs = model_hybrid(inputs)
-                        _, preds = torch.max(outputs, 1)
-                        loss = criterion(outputs, labels)
-                    running_loss += loss.item() * batch_size_
-                    batch_corrects = torch.sum(preds == labels.data).item()
-                    running_corrects += batch_corrects
-                    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True)
-                    # log to file
-                    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True, file=open('results_' + backend + '.txt', 'a'))
-                    it+=1
+    model_hybrid.eval()
+    inputs = inputs.to(device)
+    labels = labels.to(device)
+    batch_size_ = len(inputs)
+    with torch.set_grad_enabled(False):
+        outputs = model_hybrid(inputs)
+        _, preds = torch.max(outputs, 1)
+        loss = criterion(outputs, labels)
+    running_loss += loss.item() * batch_size_
+    batch_corrects = torch.sum(preds == labels.data).item()
+    running_corrects += batch_corrects
+    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True)
+    # log to file
+    print('Iter: {}/{}'.format(it + 1, n_batches + 1), end='\r', flush=True, file=open('results_' + backend + '.txt', 'a'))
+    it+=1
 
 epoch_loss = running_loss / dataset_sizes['val']
 epoch_acc = running_corrects / dataset_sizes['val']
