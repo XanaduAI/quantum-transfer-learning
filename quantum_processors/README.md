@@ -11,9 +11,9 @@ This code is based on the cross-platform library PennyLane [2] and can be used t
 <img src="../static/realQPUs.png" width="600" />
 
 ## Contents
-* `test_on_QPU.py`: Python script to test the hybrid classical-quantum image classifier with IBM or Rigetti quantum processors. 
+* `run_on_QPU.py`: Python script to run the hybrid classical-quantum image classifier with IBM or Rigetti quantum processors. 
 
-* `quantum_weights.pt`: Pre-trained model loaded by `test_on_QPU.py` to initialize the variational parameters of the hybrid network.
+* `quantum_weights.pt`: Pre-trained model loaded by `run_on_QPU.py` to initialize the variational parameters of the hybrid network.
 
 ## Usage
 
@@ -21,9 +21,9 @@ To test the model with the IBM backend:
 1. Make sure to satisfy all requirements (see next section).
 2. Download or clone the repository.
 3. Download the _Hymenoptera_ dataset as described in the main README file this repository.
-4. Edit the local file `test_on_QPU.py` and set `backend = 'ibm'`.
+4. Edit the local file `run_on_QPU.py` and set `backend = 'ibm'`.
 4. Moreover, set your personal IBM token by editing `token = '<your token>'`.
-5. Launch the script with the command `$ python3 test_on_QPU.py`.
+5. Launch the script with the command `$ python3 run_on_QPU.py`.
 6. The output files `results_ibm.txt` and  `predictions_ibm.png` will be generated.
 
 To test the model with the Rigetti backend, you will first need to reserve QPU time:
@@ -31,8 +31,8 @@ To test the model with the Rigetti backend, you will first need to reserve QPU t
 2. Login to the Rigetti QCS and your quantum machine image (QMI).
 3. Download or clone the repository in the QMI.
 4. Download the _Hymenoptera_ dataset as described in the main README file of this repository. 
-5. Edit the file `test_on_QPU.py` and set `backend = 'rigetti'`.
-6.  Launch the script with the command `$ python3 test_on_QPU.py`.
+5. Edit the file `run_on_QPU.py` and set `backend = 'rigetti'`.
+6.  Launch the script with the command `$ python3 run_on_QPU.py`.
 7. The output files `results_rigetti.txt` and  `predictions_rigetti.png` will be generated.
 
 ## Requirements
