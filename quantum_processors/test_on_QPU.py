@@ -54,7 +54,7 @@ backend = 'ibm'          #
 
 # Set the chosen backend as a PennyLane device. 
 if backend == 'ibm':
-    token = '' # Insert your personal IBM token. Remove the token when shering your code!
+    token = '' # Insert your personal IBM token. Remove the token when sharing your code!
     dev = qml.device('qiskit.ibm', wires=n_qubits, backend='ibmqx4', ibmqx_token=token)
 
 if backend == 'rigetti':
