@@ -69,11 +69,12 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # Dataset loading
 data_transforms = {
     'train': transforms.Compose([
-        #transforms.RandomResizedCrop(224),     # uncomment for data augmentation
-        #transforms.RandomHorizontalFlip(),     # uncomment for data augmentation
+        # transforms.RandomResizedCrop(224),     # uncomment for data augmentation
+        # transforms.RandomHorizontalFlip(),     # uncomment for data augmentation
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
+        # Normalize input channels using mean values and standard deviations of ImageNet. 
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
     'val': transforms.Compose([
@@ -104,6 +105,7 @@ def imshow(inp, title=None):
         title (string): title of the image
     """
     inp = inp.numpy().transpose((1, 2, 0))
+    # Inverse of the initial normalization operation.
     mean = np.array([0.485, 0.456, 0.406])
     std = np.array([0.229, 0.224, 0.225])
     inp = std * inp + mean  
