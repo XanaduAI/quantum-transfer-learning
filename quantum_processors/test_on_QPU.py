@@ -100,7 +100,7 @@ def imshow(inp, title=None):
     """Display image from tensor.
 
     Args:
-        inp (tensor): input image.
+        inp (tensor): input image
         title (string): title of the image.
     """
     inp = inp.numpy().transpose((1, 2, 0))
