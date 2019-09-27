@@ -196,7 +196,7 @@ class Quantumnet(nn.Module):
             self.post_net = nn.Linear(n_qubits, 2)
 
         def forward(self, input_features):
-            """Full classical-quantum network
+            """Full classical-quantum network.
 
             Args:
                 self.
