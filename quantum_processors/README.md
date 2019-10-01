@@ -37,7 +37,7 @@ To test the model with the Rigetti backend, you will first need to reserve QPU t
 
 ## Requirements
 
-Testing the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum virtual machine (QVM). In the QVM, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
+Testing the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum machine image (QMI). In the QMI, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
 
 Testing the model with the IBM backend requires having an IBM Q Experience account and a local installation of the Qiskit SDK. The Python library PennyLane should be  installed together with the associated PyTorch and IBM plugins. 
 
