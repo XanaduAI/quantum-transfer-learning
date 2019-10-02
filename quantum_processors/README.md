@@ -37,7 +37,7 @@ To test the model with the Rigetti backend, you will first need to reserve QPU t
 
 ## Requirements
 
-Testing the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum machine image (QMI). In the QMI, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
+Running the model with the Rigetti backend requires having a Rigetti QCS account with access to a remote quantum machine image (QMI). In the QMI, the Python library PennyLane should be installed together with the associated PyTorch and Rigetti plugins. 
 
 Running the model with the IBM backend requires having an IBM Q Experience account and a local installation of the Qiskit SDK. The Python library PennyLane should be  installed together with the associated PyTorch and IBM plugins. 
 
@@ -45,4 +45,4 @@ Running the model with the IBM backend requires having an IBM Q Experience accou
 
  [1] Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, Nathan Killoran, _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
 
- [2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin, Carsten Blank, Keri McKiernan, and Nathan Killoran. PennyLane: Automatic differentiation of hybrid quantum-classical computations. [arXiv:1811.04968](https://arxiv.org/abs/1811.04968), (2018).
+ [2] Ville Bergholm, Josh Izaac, Maria Schuld, Christian Gogolin, Carsten Blank, Keri McKiernan, and Nathan Killoran. _PennyLane: Automatic differentiation of hybrid quantum-classical computations_. [arXiv:1811.04968](https://arxiv.org/abs/1811.04968), (2018).
