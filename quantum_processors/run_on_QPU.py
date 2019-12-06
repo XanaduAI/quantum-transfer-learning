@@ -35,17 +35,18 @@ import copy
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-# Setting of the main parameters of the network model and of the training process. These should match the topology of the saved pre-trained model (quantum_weights_pt).
-n_qubits = 4  # number of qubits
-step = 0.0004  # learning rate
-batch_size = 4  # number of samples for each training step
-num_epochs = 30  # number of training epochs
-q_depth = 6  # depth of the quantum circuit (number of variational layers)
-gamma_lr_scheduler = 0.1  # learning rate reduction applied every 10 epochs.
-n_quantum_layers = 15  # Keep 15 even if not all are used.
-q_delta = 0.01  # Initial spread of random quantum weights
-rng_seed = 0  # seed for random number generator
-start_time = time.time()  # start of the computation timer
+# Setting of the main parameters of the network model and of the training process. 
+# These should match the topology of the saved pre-trained model (quantum_weights_pt).
+n_qubits = 4                # number of qubits
+step = 0.0004               # learning rate
+batch_size = 4              # number of samples for each training step
+num_epochs = 30             # number of training epochs
+q_depth = 6                 # depth of the quantum circuit (number of variational layers)
+gamma_lr_scheduler = 0.1    # learning rate reduction applied every 10 epochs.
+n_quantum_layers = 15       # Keep 15 even if not all are used.
+q_delta = 0.01              # Initial spread of random quantum weights
+rng_seed = 0                # seed for random number generator
+start_time = time.time()    # start of the computation timer
 data_dir = "../data/hymenoptera_data"  # path of dataset
 
 
@@ -165,10 +166,14 @@ def entangling_layer(nqubits):
         qml.CNOT(wires=[i, i + 1])
 
 
-# Let us define the quantum circuit by using the PennyLane `qnode` decorator . The structure is that of a typical variational quantum circuit:
-# 1. All qubits are first initialized in a balanced superposition of *up* and *down* states, then they are rotated according to the input parameters (local embedding);
-# 2. Successively a sequence of trainable rotation layers and constant entangling layers is applied. This block is responsible for the main computation necessary to solve the classification problem.
-# 3. Eventually, for each qubit, the local expectation value of the Z operator is measured. This produces a classical output vector, suitable for additional post-processing.
+# Let us define the quantum circuit by using the PennyLane `qnode` decorator .
+# The structure is that of a typical variational quantum circuit:
+# 1. All qubits are first initialized in a balanced superposition of *up* and *down* states, 
+# then they are rotated according to the input parameters (local embedding);
+# 2. Successively a sequence of trainable rotation layers and constant entangling layers is applied.
+# This block is responsible for the main computation necessary to solve the classification problem.
+# 3. Eventually, for each qubit, the local expectation value of the Z operator is measured. 
+# This produces a classical output vector, suitable for additional post-processing.
 
 
 @qml.qnode(dev, interface="torch")
@@ -196,8 +201,7 @@ def q_net(q_in, q_weights_flat):
         RY_layer(q_weights[k + 1])
 
     # Expectation values in the Z basis
-    exp_vals = [qml.expval.PauliZ(position) for position in range(n_qubits)]
-    return tuple(exp_vals)
+    return [qml.expval(qml.PauliZ(j)) for j in range(n_qubits)]
 
 
 # We can now define a custom `torch.nn.Module` representing a *dressed* quantum circuit.
@@ -208,7 +212,9 @@ def q_net(q_in, q_weights_flat):
 # 2. The previously defined quantum circuit (`q_net`)
 # 2. A classical post-processing layer (`nn.Linear`)
 #
-# The input of the module is a batch of vectors with 512 real parameters (features) and the output is a batch of vectors with two real outputs (associated with the two classes of images: *ants* and *bees*).
+# The input of the module is a batch of vectors with 512 real parameters (features) 
+# and the output is a batch of vectors with two real outputs (associated with the two 
+# classes of images: *ants* and *bees*).
 
 
 class Quantumnet(nn.Module):
@@ -240,11 +246,14 @@ class Quantumnet(nn.Module):
 
 
 # We are finally ready to build our full hybrid classical-quantum network. We follow the *transfer learning* approach.
-# First load the classical pre-trained network *ResNet18* from the `torchvision.models` zoo. The model is downloaded from Internet and it may take a long time (only the first time).
+# First load the classical pre-trained network *ResNet18* from the `torchvision.models` zoo. 
+# The model is downloaded from Internet and it may take a long time (only the first time).
 model_hybrid = torchvision.models.resnet18(pretrained=True)
+
 # Freeze all the weights since they should not be trained.
 for param in model_hybrid.parameters():
     param.requires_grad = False
+    
 # Replace the last fully connected layer with our trainable dressed quantum circuit (`Quantumnet`).
 model_hybrid.fc = Quantumnet()
 
