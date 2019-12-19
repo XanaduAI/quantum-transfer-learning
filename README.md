@@ -2,7 +2,7 @@
 # Transfer learning in hybrid classical-quantum neural networks
 A transfer learning approach applied to hybrid neural networks composed of classical and quantum elements.
 
-This repository contains the source code related to the research paper *"Transfer learning in hybrid classical-quantum neural networks"* [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx) (2019).
+This repository contains the source code related to the research paper *"Transfer learning in hybrid classical-quantum neural networks"* [arXiv:1912.08278](https://arxiv.org/abs/1912.08278) (2019).
 
 ![Figure](static/figure_c2q_notebook.png)
 
@@ -67,7 +67,7 @@ Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, and Nathan Killoran.
 
 If you are doing any research using this source code, please cite the following paper:
 
-> Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, and Nathan Killoran. _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:xxxx.xxxx](https://arxiv.org/abs/xxxx.xxxx), (2019).
+> Andrea Mari, Thomas R. Bromley, Josh Izaac, Maria Schuld, and Nathan Killoran. _Transfer learning in hybrid classical-quantum neural networks_. [arXiv:1912.08278](https://arxiv.org/abs/1912.08278) (2019).
 
 ## License
 
