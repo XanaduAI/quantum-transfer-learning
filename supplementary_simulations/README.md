@@ -7,7 +7,7 @@ In this folder we share this material since it could be of some interest also to
 ## Contents
 * `dressed_circuit_different_shape.ipynb`: Jupyter notebook where a dressed quantum circuit is used to classify a non-linearly separated dataset of points. Differently from the spiral shape used in [arXiv:1912.08278](https://arxiv.org/abs/1912.08278), in this notebook new distributions of points are used and tested.
 
-* `direct_classification_with_RESTNET18.ipynb`: Jupyter notebook where the ResNet18 network, which in the notation of [arXiv:1912.08278](https://arxiv.org/abs/1912.08278) is called network _A_, is directly used to classify images of _ants_ and _bees_.
+* `direct_classification_with_RESNET18.ipynb`: Jupyter notebook where the ResNet18 network, which in the notation of [arXiv:1912.08278](https://arxiv.org/abs/1912.08278) is called network _A_, is directly used to classify images of _ants_ and _bees_.
 
 * `transfer_learning_ants_bees_classical.ipynb`: Jupyter notebook where the ResNet18 network, which in the notation of [arXiv:1912.08278](https://arxiv.org/abs/1912.08278) is called network _A_, is modified by removing the final layer to obtain a shorter network _A'_ with 512 output nodes. In order to adapt the output nodes of _A'_ to the specific classification of _ants_ and _bees_, a final classical layer with with 2 output nodes is appended to _A'_ and trained for this task.
 
