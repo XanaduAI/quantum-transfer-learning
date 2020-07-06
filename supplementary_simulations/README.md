@@ -1,6 +1,6 @@
 
 # Supplementary numerical simulations
-In the review process of the work [arXiv:1912.08278](https://arxiv.org/abs/1912.08278), it was suggested to make some additional numerics to test our results with different datasets and to clarify the relationship our quantum machine learning models with respect to classical methods.
+In the review process of the work [arXiv:1912.08278](https://arxiv.org/abs/1912.08278), it was suggested to make some additional numerics to test our results with different datasets and to clarify the relationship of our quantum machine learning models with respect to classical methods.
 In this folder we share this material since it could be of some interest also to other people.
 
 
