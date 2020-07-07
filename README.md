@@ -23,6 +23,8 @@ This repository contains the source code related to the research paper *"Transfe
 
 * `static\`: folder containing some static images.
 
+* `supplementary_simulations\`: folder containing additional notebooks for testing the _dressed_ quantum circuit model with different datasets and for simulating two classical models which are similar to the hybrid model used in `c2q_transfer_learning_ants_bees.ipynb`.
+
 ## Usage
 
 To visualize the content of the Jupyter notebooks without running the code there are two alternatives:
