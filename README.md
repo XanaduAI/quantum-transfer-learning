@@ -53,7 +53,7 @@ The notebooks `c2q_transfer_learning_*.ipynb` require the Python libraries Penny
 
 The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend.
 
-All notebooks require the package versions specified in the `requirements.txt` to run on a CUDA device.
+Notebooks can be run using the package versions specified in the `requirements.txt` file.
 
 For the requirements of the code in `quantum_processors\` see the dedicated README file `quantum_processors\README.md`.
 
