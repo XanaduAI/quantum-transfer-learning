@@ -7,7 +7,7 @@ This repository contains the source code related to the research paper *"Transfe
 ![Figure](static/figure_c2q_notebook.png)
 
 ## Contents
-* `dressed_circuit.ipynb`: Jupyter notebook to train and test a _dressed_ variational quantum circuit for the classification of a syntetic dataset of 2-dimensional points (spirals). 
+* `dressed_circuit.ipynb`: Jupyter notebook to train and test a _dressed_ variational quantum circuit for the classification of a syntetic dataset of 2-dimensional points (spirals).
 
 * `c2q_transfer_learning_ants_bees.ipynb`: Jupyter notebook to train and test a hybrid neural network for the classification of high-resolution images (_ants_ and _bees_). This example is based on a classical-to-quantum (CQ) transfer learning approach.
 
@@ -53,8 +53,9 @@ The notebooks `c2q_transfer_learning_*.ipynb` require the Python libraries Penny
 
 The notebooks `q2c_transfer_learning.ipynb` and  `q2q_transfer_learning.ipynb` require the library Strawberry Fields with the TensorFlow backend.
 
-For the requirements of the code in `quantum_processors\` see the dedicated README file `quantum_processors\README.md`.
+Notebooks can be run using the package versions specified in the `requirements.txt` file.
 
+For the requirements of the code in `quantum_processors\` see the dedicated README file `quantum_processors\README.md`.
 
 #### Datasets
 The notebook `c2q_transfer_learning_ants_bees.ipynb` and the code in `quantum_processors\` require to manually download the dataset, consisting of the _Hymenoptera_ subset of ImageNet (ants and bees). The dataset can be downloaded [here](https://download.pytorch.org/tutorial/hymenoptera_data.zip) and should extracted in the subfolder `\data\hymenoptera_data\`.
